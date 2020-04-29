@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Bulletin\bulletin"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -25,12 +26,14 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.proj.bulletin.bulletinProj"/>
 			<item value="com.proj.bulletin.bulletin"/>
 		</list>
 		<list key="groupId">
 			<item value="com.proj.bulletin"/>
 		</list>
 		<list key="artifactId">
+			<item value="bulletinProj"/>
 			<item value="bulletin"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -65,6 +68,14 @@
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
