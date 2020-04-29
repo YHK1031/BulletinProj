@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+D:\Bulletin\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1943668597.index
+\bulletinProj\src\main\resources
+D:\Bulletin\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1734833533.index
+\bulletin\src\main\resources
