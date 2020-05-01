@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-internalWebBrowserHistory=http\://localhost\:8080/bulletinProj/|*|http\://localhost\:8080/|*|http\://localhost\:8080/bulletin/|*|
+internalWebBrowserHistory=http\://localhost\:8080/bulletinProj/|*|http\://localhost\:8080/bulletinProj/$%7BpageContext.request.contextPath%7D/logout|*|http\://localhost\:8080/|*|http\://localhost\:8080/bulletin/|*|
