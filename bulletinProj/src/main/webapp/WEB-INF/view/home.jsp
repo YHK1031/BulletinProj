@@ -20,12 +20,15 @@ function getContextPath() {
 <body>
 
 	<nav>
+	<div id="menu">
 		<ul class="nav-container">
 			<li class="nav-item"><a href="/bulletinProj">Bulletin Home Page</a></li>
 			<li class="nav-item"><a href="">Main</a></li>
 			<li class="nav-item"><a href="">게시판</a></li>
+			<li class="nav-item-1"><a href="${pageContext.request.contextPath}/register/showRegistrationForm">회원가입</a></li>
+			<li class="nav-item-1"><a href="${pageContext.request.contextPath}/register/showRegistrationForm">로그인</a></li>
 		</ul>
-		
+	</div>
 	</nav>
 	
 	<hr>

@@ -21,8 +21,29 @@ ul{
 	cursor: pointer;
 }
 
+.nav-item-1{
+	padding:15px;
+	cursor: pointer;
+}
+
 .nav-item a{
-	text-align: center;
 	text-decoration: none;
 	color: white;
 }
+
+.nav-item-1 a{
+	text-decoration: none;
+	color: white;
+}
+
+#menu {
+	float: left;
+	list-style-type: none;
+	margin: 0 0 1em;
+	padding: 8px 0 0 10px;
+	white-space: nowrap;
+	width: 100%;
+	}
+
+
+#menu li.nav-item-1{float: right;}

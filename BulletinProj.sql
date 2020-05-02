@@ -1,6 +1,19 @@
 CREATE DATABASE  IF NOT EXISTS `web_bulletin`;
 USE `web_bulletin`;
 
+
+--
+-- Table structure for table `ROLE_TB`
+--
+
+DROP TABLE IF EXISTS `ROLE_TB`;
+
+CREATE TABLE `ROLE_TB` (
+  `ROLE_ID` varchar(16) PRIMARY KEY,
+  `ROLE` varchar(16) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 --
 -- Table structure for table `USER_TB`
 --
@@ -8,12 +21,15 @@ USE `web_bulletin`;
 DROP TABLE IF EXISTS `USER_TB`;
 
 CREATE TABLE `USER_TB` (
-  `ID` varchar(16) PRIMARY KEY,
-  `PW` varchar(16) DEFAULT NULL,
-  `FIRSTNAME` varchar(16) DEFAULT NULL,
-  `LASTNAME` varchar(16) DEFAULT NULL,
-  `EMAIL` varchar(48) DEFAULT NULL,
-  `VALIDITY` int(11)
+  `ID` varchar(16) NOT NULL,
+  `PW` varchar(255) NOT NULL,
+  `FIRSTNAME` varchar(16) NOT NULL,
+  `LASTNAME` varchar(16) NOT NULL,
+  `EMAIL` varchar(48) NOT NULL,
+  `VALIDITY` int(11) NOT NULL,
+  `ROLE_ID` varchar(16),
+  PRIMARY KEY (`ID`),
+  foreign key(`ROLE_ID`) references ROLE_TB(ROLE_ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
