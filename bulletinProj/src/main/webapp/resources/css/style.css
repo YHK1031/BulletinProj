@@ -47,3 +47,11 @@ ul{
 
 
 #menu li.nav-item-1{float: right;}
+
+
+
+.table-head{
+	text-align: center;
+	background-color: gray;
+}
+

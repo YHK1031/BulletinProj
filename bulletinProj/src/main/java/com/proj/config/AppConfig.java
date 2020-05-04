@@ -16,6 +16,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -148,4 +149,12 @@ public class AppConfig implements WebMvcConfigurer{
 	    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
 	        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	    }
+	    
+	 // define bean for RestTemplate ... this is used to make client REST calls
+		
+		@Bean
+		public RestTemplate restTemplate() {
+			return new RestTemplate();
+		}
+		
 }
