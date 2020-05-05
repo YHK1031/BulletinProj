@@ -1,6 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
@@ -30,8 +30,8 @@ function getContextPath() {
 			
 			<li class="nav-item"><a class="nav-link" href="">Main</a></li>
 			<li class="nav-item"><a class="nav-link" href="">게시판</a></li>
-			<li class="nav-item"><a class="nav-link" onclick="window.location.href='showFormForAdd'; return false;">회원가입</a></li>
-			<li class="nav-item"><a class="nav-link" href="/showFormForAdd">로그인</a></li>
+			<li class="nav-item"><a class="nav-link" onclick="window.location.href='register/showFormForAdd'; return false;">회원가입</a></li>
+			<li class="nav-item"><a class="nav-link" onclick="window.location.href='showMyLoginPage'; return false;">로그인</a></li>
 		</ul>
 	
 	</nav>
