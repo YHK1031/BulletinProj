@@ -24,7 +24,7 @@ public class Role {
 	private String role;
 	
 	@OneToMany(mappedBy="role", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<User> Users;
+	private List<User> users;
 
 	public String getRole_id() {
 		return role_id;
@@ -43,11 +43,11 @@ public class Role {
 	}
 
 	public List<User> getUsers() {
-		return Users;
+		return users;
 	}
 
 	public void setUsers(List<User> users) {
-		Users = users;
+		this.users = users;
 	}
 	
 	
