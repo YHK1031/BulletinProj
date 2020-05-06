@@ -9,3 +9,4 @@ Tools used for this project are shown below
 </ul>
 
 ## ERD
+![erd](./img/erd.jpg)
