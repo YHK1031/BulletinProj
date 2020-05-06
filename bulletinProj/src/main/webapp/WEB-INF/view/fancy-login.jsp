@@ -106,8 +106,13 @@
 			<div>
 				<a href="${pageContext.request.contextPath}/register/showFormForAdd" class="btn btn-primary" role="button" aria-pressed="true">Register New User</a>
 			</div>
-
+			<br>
+			<div>
+				<a href="${pageContext.request.contextPath}" class="btn btn-primary" role="button" aria-pressed="true">뒤로가기</a>
+			</div>
 		</div>
+		
+		
 
 	</div>
 

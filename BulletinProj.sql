@@ -106,4 +106,4 @@ CREATE TABLE `LIKE_TB` (
     foreign key(`BoardKindIdx`) references BOARD_TB(BoardKindIdx)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
-
+INSERT INTO web_bulletin.role_tb values ('ROLE_ADMIN', 'ADMIN');

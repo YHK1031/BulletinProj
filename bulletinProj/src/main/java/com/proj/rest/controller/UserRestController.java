@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.proj.entity.User;
 import com.proj.rest.exception.UserNotFoundException;
 import com.proj.service.UserService;
+import com.proj.user.BulletinUser;
 
 @RestController
 @RequestMapping("/api")
@@ -34,21 +35,20 @@ public class UserRestController {
 		User theUser = userService.getUser(userId);
 
 		if (theUser == null) {
-			throw new UserNotFoundException("User id not found - " + userId);
+			return null;
 		}
 		theUser.getRole().setUsers(null);
 		return theUser;
 	}
 	
 	@PostMapping("/users")
-	public User addUser(@RequestBody User theUser) {
+	public BulletinUser addUser(@RequestBody BulletinUser theUser) {
 		User tempUser = userService.getUser(theUser.getId());
 		System.out.println(theUser.getId());
 		if(tempUser!=null) {
 			throw new UserNotFoundException();
 		}
 		userService.saveUser(theUser);
-		theUser.setRole(null);
 		return theUser;
 	}
 	

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.proj.entity.User;
+import com.proj.user.BulletinUser;
 
 @Service
 public class UserServiceRestClientImpl implements UserService {
@@ -60,29 +61,29 @@ public class UserServiceRestClientImpl implements UserService {
 		logger.info("in getUser(): Calling REST API " + restUrl);
 
 		// make REST call
-		User theCustomer = 
+		User theUser = 
 				restTemplate.getForObject(restUrl + "/" + theId, 
 						User.class);
 
-		logger.info("in getUser(): theCustomer=" + theCustomer);
+		logger.info("in getUser(): theUser=" + theUser);
 		
-		return theCustomer;
+		return theUser;
 	}
 
 	@Override
-	public void saveUser(User theUser) {
+	public void saveUser(BulletinUser bulletinUser) {
 		logger.info("in saveUser(): Calling REST API " + restUrl);
 		
-		User tempUser = restTemplate.getForObject(restUrl+"/"+theUser.getId(),User.class);
+		User tempUser = restTemplate.getForObject(restUrl+"/"+bulletinUser.getId(),User.class);
 		
 		// make REST call
 		if (tempUser == null) {
 			// add employee
-			restTemplate.postForEntity(restUrl, theUser, String.class);			
+			restTemplate.postForEntity(restUrl, bulletinUser, String.class);			
 		
 		} else {
 			// update employee
-			restTemplate.put(restUrl, theUser);
+			restTemplate.put(restUrl, bulletinUser);
 		}
 
 		logger.info("in saveUser(): success");	

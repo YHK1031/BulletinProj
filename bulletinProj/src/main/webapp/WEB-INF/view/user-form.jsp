@@ -81,8 +81,8 @@
 						<!-- Confirm Password -->
 						<div style="margin-bottom: 25px" class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> 
-							<form:errors path="matchingPassword" cssClass="error" />
-							<form:password path="matchingPassword" placeholder="confirm password (*)" class="form-control" />
+							<form:errors path="matchingPw" cssClass="error" />
+							<form:password path="matchingPw" placeholder="confirm password (*)" class="form-control" />
 						</div>
 					
 						
@@ -119,16 +119,15 @@
 					</form:form>
 
 				</div>
-
+				
 			</div>
-
+				<div>
+					<a href="${pageContext.request.contextPath}" class="btn btn-primary" role="button" aria-pressed="true">뒤로가기</a>
+				</div>
 		</div>
-
+		
 	</div>
-	<p>
-		<a href="/bulletinProj">Back to List</a>
-	</p>
-
+	
 
 </body>
 </html>

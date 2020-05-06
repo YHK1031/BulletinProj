@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.proj.dao.RoleDao;
 import com.proj.dao.UserDao;
 import com.proj.entity.User;
+import com.proj.user.BulletinUser;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -43,9 +44,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-	public void saveUser(User theUser) {
-		
-		theUser.setPw(passwordEncoder.encode(theUser.getPw()));
+	public void saveUser(BulletinUser bulletinUser) {
+		User theUser = new User();
+		theUser.setId(bulletinUser.getId());
+		theUser.setPw(passwordEncoder.encode(bulletinUser.getPw()));
+		theUser.setFirstName(bulletinUser.getFirstName());
+		theUser.setLastName(bulletinUser.getLastName());
+		theUser.setEmail(bulletinUser.getEmail());
 		theUser.setValidity(1);
 		theUser.setRole(roleDao.findRoleByName("ROLE_USER"));
 		System.out.println("At User Service : "+theUser.toString());

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.proj.entity.User;
+import com.proj.user.BulletinUser;
 
 public interface UserService extends UserDetailsService{
 
@@ -12,7 +13,7 @@ public interface UserService extends UserDetailsService{
 	
 	public User getUser(String theId);
 	
-	public void saveUser(User theUser);	
+	public void saveUser(BulletinUser theUser);	
 	
 	public void deleteUser(String theId);
 	

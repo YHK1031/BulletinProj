@@ -7,22 +7,22 @@ import com.proj.validation.FieldMatch;
 import com.proj.validation.ValidEmail;
 
 @FieldMatch.List({
-    @FieldMatch(first = "password", second = "matchingPassword", message = "The password fields must match")
+    @FieldMatch(first = "pw", second = "matchingPw", message = "The password fields must match")
 })
 public class BulletinUser {
 
 
 	@NotNull(message = "is required")
 	@Size(min = 1, message = "is required")
-	private String userName;
+	private String id;
 
 	@NotNull(message = "is required")
 	@Size(min = 1, message = "is required")
-	private String password;
+	private String pw;
 	
 	@NotNull(message = "is required")
 	@Size(min = 1, message = "is required")
-	private String matchingPassword;
+	private String matchingPw;
 
 	@NotNull(message = "is required")
 	@Size(min = 1, message = "is required")
@@ -41,28 +41,28 @@ public class BulletinUser {
 
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getId() {
+		return id;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPw() {
+		return pw;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 
-	public String getMatchingPassword() {
-		return matchingPassword;
+	public String getMatchingPw() {
+		return matchingPw;
 	}
 
-	public void setMatchingPassword(String matchingPassword) {
-		this.matchingPassword = matchingPassword;
+	public void setMatchingPw(String matchingPw) {
+		this.matchingPw = matchingPw;
 	}
 
 	public String getFirstName() {
