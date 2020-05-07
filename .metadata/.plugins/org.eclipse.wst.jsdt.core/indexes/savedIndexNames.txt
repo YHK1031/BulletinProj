@@ -1,11 +1,6 @@
 INDEX VERSION 1.4+D:\BulletinProj\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 3271686357.index
 4235973515.index
-267320429.index
-<<<<<<< HEAD
-=======
-1614396472.index
->>>>>>> 2587007dee2442fc84d11ac218f562aab94d86e1
 744436673.index
 2911199138.index
 3029108058.index
