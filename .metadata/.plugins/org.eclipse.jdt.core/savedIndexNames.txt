@@ -46,7 +46,6 @@ INDEX VERSION 1.131+D:\BulletinProj\.metadata\.plugins\org.eclipse.jdt.core
 144380394.index
 1401678300.index
 3852737441.index
-1232370321.index
 75530477.index
 2011287641.index
 1860485910.index

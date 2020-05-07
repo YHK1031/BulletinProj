@@ -41,11 +41,7 @@ DROP TABLE IF EXISTS `BOARD_KIND_TB`;
 
 CREATE TABLE `BOARD_KIND_TB` (
 	`BoardKindId`	VARCHAR(16),
-<<<<<<< HEAD
 	`BoardKindName`	VARCHAR(16),
-=======
-	`BoardKindName`	VARCHAR(255),
->>>>>>> 2587007dee2442fc84d11ac218f562aab94d86e1
 	PRIMARY KEY (`BoardKindId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -114,9 +110,4 @@ CREATE TABLE `LIKE_TB` (
 
 INSERT INTO web_bulletin.role_tb values ('ROLE_USER', 'USER');
 INSERT INTO web_bulletin.role_tb values ('ROLE_ADMIN', 'ADMIN');
-<<<<<<< HEAD
-INSERT INTO web_bulletin.role_tb values ('ROLE_USER', 'USER');
-INSERT INTO web_bulletin.board_kind_tb values ('MAIN', 'MAIN');
-=======
 INSERT INTO web_bulletin.BOARD_KIND_TB values ('MAIN', 'MAIN');
->>>>>>> 2587007dee2442fc84d11ac218f562aab94d86e1

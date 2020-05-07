@@ -15,12 +15,6 @@
 
 </head>
 
-<script type="text/javascript">
-function getContextPath() {
-	var hostIndex = location.href.indexOf( location.host ) + location.host.length;
-	return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
-};
-</script>
 
 <body>
 	<%
@@ -89,12 +83,12 @@ function getContextPath() {
 				if(userId==null){
 		%>
 		
-		<form action="${pageContext.request.contextPath}/showMyLoginPage" method="GET"><button class="btn" type="submit">글쓰기</button></form>
+		<form action="${pageContext.request.contextPath}/showMyLoginPage" method="GET"><button class="btn btn-secondary" type="submit">글쓰기</button></form>
 
 		<%
 				}else{
 		%>
-		<form action="${pageContext.request.contextPath}/newArticle" method="GET"><button class="btn" type="submit">글쓰기</button></form>
+		<form action="${pageContext.request.contextPath}/newArticle" method="GET"><button class="btn btn-secondary" type="submit">글쓰기</button></form>
 		
 		<%
 				}
