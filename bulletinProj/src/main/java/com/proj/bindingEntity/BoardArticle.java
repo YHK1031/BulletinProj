@@ -5,8 +5,6 @@ import javax.validation.constraints.Size;
 
 public class BoardArticle {
 
-	@NotNull(message = "is required")
-	@Size(min = 1, message = "is required")
 	private String userId;
 	
 	@NotNull(message = "is required")

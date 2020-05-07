@@ -28,7 +28,7 @@ public class UserServiceRestClientImpl implements UserService {
 	public UserServiceRestClientImpl(RestTemplate theRestTemplate, 
 										@Value("${rest.url}") String theUrl) {
 		restTemplate = theRestTemplate;
-		restUrl = theUrl;
+		restUrl = theUrl+"/users";
 				
 		logger.info("Loaded property:  rest.url=" + restUrl);
 	}

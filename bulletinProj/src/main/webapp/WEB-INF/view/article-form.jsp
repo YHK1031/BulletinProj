@@ -52,15 +52,17 @@
 	<hr>
 
 
-	<form:form action="${pageContext.request.contextPath}/register/processRegistrationForm" 
-						  	   modelAttribute="user"
+	<form:form action="${pageContext.request.contextPath}/writeArticle" 
+						  	   modelAttribute="boardArticle"
 						  	   class="form-horizontal"
 						  	   method="post">
+		
 		<label class="control-label" for="article-title">제목</label>
-		<input type="text" class="form-control" id="article-title" required>
+		<form:input path="title" type="text" class="form-control" id="article-title"/>
 		<label class="control-label" for="article-contents">내용</label>
 		<div class="form-group" id="article-contents">
-			<textarea class="form-control" rows="15" required></textarea>
+			<form:textarea path="content" class="form-control" rows="15"/>
+			<form:hidden path="boardKind" value="MAIN"/>
 		</div>
 		<button type="submit" class="btn btn-secondary">제출하기</button>
 	</form:form>

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.proj.bindingEntity.BoardArticle;
 import com.proj.dao.BoardDao;
+import com.proj.dao.BoardKindDao;
 import com.proj.dao.BoardLikeDao;
 import com.proj.dao.UserDao;
 import com.proj.entity.Board;
@@ -29,6 +30,9 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private BoardKindDao boardKindDao;
 	
 	@Override
 	@Transactional
@@ -52,9 +56,7 @@ public class BoardServiceImpl implements BoardService {
 		User theUser = userDao.getUser(boardArticle.getUserId());
 		
 		// TODO temporarily...
-		BoardKind boardKind = new BoardKind();
-		boardKind.setBoardKindId(boardArticle.getBoardKind());
-		boardKind.setBoardKindName(boardArticle.getBoardKind());
+		BoardKind boardKind = boardKindDao.getBoardKind(boardArticle.getBoardKind());
 		theBoard.setBoardKind(boardKind);
 		
 		theBoard.setContent(boardArticle.getContent());

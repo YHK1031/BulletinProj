@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS `ROLE_TB`;
 CREATE TABLE `ROLE_TB` (
   `ROLE_ID` varchar(16) PRIMARY KEY,
   `ROLE` varchar(16) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --
@@ -30,7 +30,7 @@ CREATE TABLE `USER_TB` (
   `ROLE_ID` varchar(16),
   PRIMARY KEY (`ID`),
   foreign key(`ROLE_ID`) references ROLE_TB(ROLE_ID)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `BOARD_KIND_TB` (
 	`BoardKindId`	VARCHAR(16),
 	`BoardKindName`	VARCHAR(16),
 	PRIMARY KEY (`BoardKindId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `BOARD_TB` (
     foreign key(`BoardKindId`) references BOARD_KIND_TB(BoardKindId),
     foreign key(`ID`) references USER_TB(ID),
     PRIMARY KEY (`BoardIdx`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 --
@@ -89,7 +89,7 @@ CREATE TABLE `COMMENT_TB` (
     foreign key(`BoardIdx`) references BOARD_TB(BoardIdx),
     foreign key(`BoardKindId`) references BOARD_TB(BoardKindId),
     foreign key(`Parent`) references COMMENT_TB(CommentIdx)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 --
@@ -106,7 +106,7 @@ CREATE TABLE `BOARD_LIKE_TB` (
     PRIMARY KEY (`BoardLikeIdx`),
     foreign key(`ID`) references USER_TB(ID),
     foreign key(`BoardIdx`) references BOARD_TB(BoardIdx)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `COMMENT_LIKE_TB` (
     PRIMARY KEY (`CommentLikeIdx`),
     foreign key(`ID`) references USER_TB(ID),
     foreign key(`CommentIdx`) references COMMENT_TB(CommentIdx)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO web_bulletin.role_tb values ('ROLE_USER', 'USER');
