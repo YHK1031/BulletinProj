@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import com.proj.bindingEntity.BulletinUser;
 import com.proj.entity.User;
-import com.proj.user.BulletinUser;
 
 public interface UserService extends UserDetailsService{
 

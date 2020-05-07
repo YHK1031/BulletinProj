@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.proj.bindingEntity.BulletinUser;
 import com.proj.entity.User;
 import com.proj.rest.exception.UserNotFoundException;
 import com.proj.service.UserService;
-import com.proj.user.BulletinUser;
 
 @RestController
 @RequestMapping("/api")

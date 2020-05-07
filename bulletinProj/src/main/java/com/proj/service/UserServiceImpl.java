@@ -12,10 +12,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.proj.bindingEntity.BulletinUser;
 import com.proj.dao.RoleDao;
 import com.proj.dao.UserDao;
 import com.proj.entity.User;
-import com.proj.user.BulletinUser;
 
 @Service
 public class UserServiceImpl implements UserService {

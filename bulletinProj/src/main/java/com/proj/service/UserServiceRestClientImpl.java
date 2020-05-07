@@ -13,8 +13,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.proj.bindingEntity.BulletinUser;
 import com.proj.entity.User;
-import com.proj.user.BulletinUser;
 
 @Service
 public class UserServiceRestClientImpl implements UserService {

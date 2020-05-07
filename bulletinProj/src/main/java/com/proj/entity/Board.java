@@ -1,5 +1,7 @@
 package com.proj.entity;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,9 +22,6 @@ public class Board {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "BoardIdx")
 	private Long boardIdx;
-	
-	@Column(name = "BoardKindId")
-	private String boardKindId;
 	
 	@Column(name = "Title")
 	private String title;
@@ -45,13 +45,19 @@ public class Board {
 	@JoinColumn(name="boardKindId")
 	private BoardKind boardKind;
 
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="id")
+	private User user;
+
+	@OneToMany(mappedBy="board", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<BoardLike> boardLike;
+	
 	public Board() {
 		
 	}
 	
-	public Board(String boardKindId, String title, String content, Long hits, String createDate, Long likeCount,
-			Long dislikeCount, BoardKind boardKind) {
-		this.boardKindId = boardKindId;
+	public Board(String title, String content, Long hits, String createDate, Long likeCount,
+			Long dislikeCount, BoardKind boardKind, User user, List<BoardLike> boardLike) {
 		this.title = title;
 		this.content = content;
 		this.hits = hits;
@@ -59,14 +65,8 @@ public class Board {
 		this.likeCount = likeCount;
 		this.dislikeCount = dislikeCount;
 		this.boardKind = boardKind;
-	}
-
-	public String getBoardKindId() {
-		return boardKindId;
-	}
-
-	public void setBoardKindId(String boardKindId) {
-		this.boardKindId = boardKindId;
+		this.user = user;
+		this.boardLike = boardLike;
 	}
 
 	public String getTitle() {
@@ -127,6 +127,26 @@ public class Board {
 
 	public Long getBoardIdx() {
 		return boardIdx;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public List<BoardLike> getBoardLike() {
+		return boardLike;
+	}
+
+	public void setBoardIdx(Long boardIdx) {
+		this.boardIdx = boardIdx;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void setBoardLike(List<BoardLike> boardLike) {
+		this.boardLike = boardLike;
 	}
 	
 	

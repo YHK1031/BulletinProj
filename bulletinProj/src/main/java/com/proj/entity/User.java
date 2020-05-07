@@ -1,5 +1,7 @@
 package com.proj.entity;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -35,22 +38,18 @@ public class User {
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="role_id")
 	private Role role;
+	
+	@OneToMany(mappedBy="user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Board> boards;
 
+	@OneToMany(mappedBy="user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<BoardLike> boardLike;
+	
 	public User() {
 	}
 	
-	public User(String id, String pw, String firstName, String lastName, String email, int validity) {
-		this.id = id;
-		this.pw = pw;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.validity = validity;
-	}
-	
-
-	public User(String id, String pw, String firstName, String lastName, String email, int validity,
-			Role role) {
+	public User(String id, String pw, String firstName, String lastName, String email, int validity, Role role,
+			List<Board> boards, List<BoardLike> boardLike) {
 		this.id = id;
 		this.pw = pw;
 		this.firstName = firstName;
@@ -58,6 +57,8 @@ public class User {
 		this.email = email;
 		this.validity = validity;
 		this.role = role;
+		this.boards = boards;
+		this.boardLike = boardLike;
 	}
 
 	public String getId() {
@@ -116,6 +117,22 @@ public class User {
 		this.role = role;
 	}
 	
+
+	public List<Board> getBoards() {
+		return boards;
+	}
+
+	public void setBoards(List<Board> boards) {
+		this.boards = boards;
+	}
+
+	public List<BoardLike> getBoardLike() {
+		return boardLike;
+	}
+
+	public void setBoardLike(List<BoardLike> boardLike) {
+		this.boardLike = boardLike;
+	}
 
 	@Override
 	public String toString() {

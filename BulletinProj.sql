@@ -61,8 +61,10 @@ CREATE TABLE `BOARD_TB` (
 	`CreateDate`	datetime	NULL,
 	`LikeCount`	int(11)	NULL,
     `DislikeCount`	int(11)	NULL,
+    `ID` varchar(16) NOT NULL,
     foreign key(`BoardKindId`) references BOARD_KIND_TB(BoardKindId),
-    PRIMARY KEY (`BoardIdx`,`BoardKindId`)
+    foreign key(`ID`) references USER_TB(ID),
+    PRIMARY KEY (`BoardIdx`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
@@ -81,7 +83,9 @@ CREATE TABLE `COMMENT_TB` (
     `DislikeCount`	int(11)	NULL,
 	`Parent`	int(11)	NOT NULL,
 	`BoardKindId`	VARCHAR(16)	NOT NULL,
+    `ID` varchar(16) NOT NULL,
     PRIMARY KEY (`CommentIdx`),
+    foreign key(`ID`) references USER_TB(ID),
     foreign key(`BoardIdx`) references BOARD_TB(BoardIdx),
     foreign key(`BoardKindId`) references BOARD_TB(BoardKindId),
     foreign key(`Parent`) references COMMENT_TB(CommentIdx)
@@ -89,24 +93,38 @@ CREATE TABLE `COMMENT_TB` (
 
 
 --
--- Table structure for table `LIKE_TB`
+-- Table structure for table `BOARD_LIKE_TB`
 --
 
-DROP TABLE IF EXISTS `LIKE_TB`;
+DROP TABLE IF EXISTS `BOARD_LIKE_TB`;
 
-CREATE TABLE `LIKE_TB` (
-	`LikeIdx`	int(11)	NOT NULL,
+CREATE TABLE `BOARD_LIKE_TB` (
+	`BoardLikeIdx`	int(11)	NOT NULL AUTO_INCREMENT,
 	`ID`	VARCHAR(16)	NOT NULL,
 	`Liked`	int(11)	NULL,
-	`BoardIdx`	int(11)	,
-	`CommentIdx`	int(11)	,
-	`BoardKindId`	VARCHAR(16)	,
-    PRIMARY KEY (`LikeIdx`),
+	`BoardIdx`	int(11)	NOT NULL,
+    PRIMARY KEY (`BoardLikeIdx`),
     foreign key(`ID`) references USER_TB(ID),
-    foreign key(`CommentIdx`) references COMMENT_TB(CommentIdx),
-    foreign key(`BoardIdx`) references BOARD_TB(BoardIdx),
-    foreign key(`BoardKindId`) references BOARD_TB(BoardKindId)
+    foreign key(`BoardIdx`) references BOARD_TB(BoardIdx)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
+--
+-- Table structure for table `COMMENT_LIKE_TB`
+--
+
+DROP TABLE IF EXISTS `COMMENT_LIKE_TB`;
+
+CREATE TABLE `COMMENT_LIKE_TB` (
+	`CommentLikeIdx`	int(11)	NOT NULL AUTO_INCREMENT,
+	`ID`	VARCHAR(16)	NOT NULL,
+	`Liked`	int(11)	NULL,
+	`CommentIdx`	int(11)	,
+    PRIMARY KEY (`CommentLikeIdx`),
+    foreign key(`ID`) references USER_TB(ID),
+    foreign key(`CommentIdx`) references COMMENT_TB(CommentIdx)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
 
 INSERT INTO web_bulletin.role_tb values ('ROLE_USER', 'USER');
 INSERT INTO web_bulletin.role_tb values ('ROLE_ADMIN', 'ADMIN');

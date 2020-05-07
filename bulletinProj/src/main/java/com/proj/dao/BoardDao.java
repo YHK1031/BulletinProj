@@ -8,10 +8,10 @@ public interface BoardDao {
 
 	public List<Board> getBoards();
 	
-	public Board getBoard(String theId);
+	public Board getBoard(Long theId);
 	
 	public void saveBoard(Board theBoard);	
 	
-	public void deleteBoard(String theId);
+	public void deleteBoard(Long theId);
 	
 }

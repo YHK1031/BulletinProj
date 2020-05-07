@@ -1,4 +1,4 @@
-package com.proj.user;
+package com.proj.bindingEntity;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.proj.bindingEntity.BulletinUser;
 import com.proj.entity.User;
 import com.proj.service.UserService;
-import com.proj.user.BulletinUser;
 
 @Controller
 @RequestMapping("/register")
