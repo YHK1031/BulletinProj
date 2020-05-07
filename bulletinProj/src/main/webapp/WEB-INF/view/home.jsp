@@ -89,13 +89,16 @@ function getContextPath() {
 				if(userId==null){
 		%>
 		
-		<form action="${pageContext.request.contextPath}/logout" method="POST"><button class="btn" type="submit">글쓰기</button></form>
+		<form action="${pageContext.request.contextPath}/showMyLoginPage" method="GET"><button class="btn" type="submit">글쓰기</button></form>
 
+		<%
+				}else{
+		%>
+		<form action="${pageContext.request.contextPath}/newArticle" method="GET"><button class="btn" type="submit">글쓰기</button></form>
+		
 		<%
 				}
 		%>
-
-		
 		
 	</div>
 
