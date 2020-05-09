@@ -12,8 +12,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.proj.bindingEntity.BoardArticle;
+import com.proj.entity.Board;
 import com.proj.service.BoardService;
 
 @Controller
@@ -34,7 +36,7 @@ public class BoardController {
 		return "article-form";
 	}
 	
-	@PostMapping("/writeArticle")
+	@PostMapping("/newArticle")
 	public String writeArticle(
 			@Valid @ModelAttribute("boardArticle") BoardArticle boardArticle, 
 			BindingResult theBindingResult, 
@@ -51,8 +53,19 @@ public class BoardController {
 		
 		boardService.saveBoard(boardArticle);
 		
-		return "home";
+		return "redirect:/";
 	}
 	
-	
+	@GetMapping("/contents")
+	public String articleContents(
+			@RequestParam String id,
+			Model theModel) {
+		Long idx = Long.parseLong(id);
+		// create model attribute to bind form data
+		Board tempBoard = boardService.getBoard(idx);
+				
+		theModel.addAttribute("board", tempBoard);
+		
+		return "article-content";
+	}
 }

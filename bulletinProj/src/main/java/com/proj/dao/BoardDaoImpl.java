@@ -21,7 +21,7 @@ public class BoardDaoImpl implements BoardDao {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		Query<Board> theQuery = 
-				currentSession.createQuery("from Board order by boardIdx",
+				currentSession.createQuery("from Board order by boardIdx desc",
 						Board.class);
 		
 		List<Board> boards = theQuery.getResultList();
@@ -38,7 +38,7 @@ public class BoardDaoImpl implements BoardDao {
 		}catch(Exception e) {
 			theBoard = null;
 		}
-		
+
 		return theBoard;
 	}
 

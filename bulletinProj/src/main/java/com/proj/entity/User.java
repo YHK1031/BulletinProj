@@ -15,8 +15,12 @@ import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "user_tb")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 public class User {
 
 	@Id
@@ -42,11 +46,13 @@ public class User {
 	@JoinColumn(name="role_id")
 	private Role role;
 	
-	@OneToMany(mappedBy="user", cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="BoardIdx")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Board> boards;
-
-	@OneToMany(mappedBy="user", cascade = CascadeType.ALL)
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="BoardLikeIdx")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<BoardLike> boardLike;
 	

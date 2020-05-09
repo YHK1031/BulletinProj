@@ -37,7 +37,6 @@ public class UserRestController {
 		if (theUser == null) {
 			return null;
 		}
-		theUser.getRole().setUsers(null);
 		return theUser;
 	}
 	

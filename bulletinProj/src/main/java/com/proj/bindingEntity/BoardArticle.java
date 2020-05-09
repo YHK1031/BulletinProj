@@ -19,6 +19,8 @@ public class BoardArticle {
 	@Size(min = 1, message = "is required")
 	private String boardKind;
 	
+	private Long boardIdx;
+	
 	public BoardArticle() {
 		
 	}
@@ -54,6 +56,15 @@ public class BoardArticle {
 	public void setBoardKind(String boardKind) {
 		this.boardKind = boardKind;
 	}
+
+	public Long getBoardIdx() {
+		return boardIdx;
+	}
+
+	public void setBoardIdx(Long boardIdx) {
+		this.boardIdx = boardIdx;
+	}
+
 	
 	
 }

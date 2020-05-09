@@ -14,8 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "BOARD_TB")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 public class Board {
 
 	@Id
@@ -48,8 +52,9 @@ public class Board {
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="id")
 	private User user;
-
-	@OneToMany(mappedBy="board", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="BoardLikeIdx")
 	private List<BoardLike> boardLike;
 	
 	public Board() {
@@ -147,6 +152,13 @@ public class Board {
 
 	public void setBoardLike(List<BoardLike> boardLike) {
 		this.boardLike = boardLike;
+	}
+
+	@Override
+	public String toString() {
+		return "Board [boardIdx=" + boardIdx + ", title=" + title + ", content=" + content + ", hits=" + hits
+				+ ", createDate=" + createDate + ", likeCount=" + likeCount + ", dislikeCount=" + dislikeCount
+				+ ", user=" + user + ", boardLike=" + boardLike + "]";
 	}
 	
 	

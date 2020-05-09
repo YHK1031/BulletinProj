@@ -59,16 +59,22 @@
 					<th class="table-th">번호</th>
 					<th class="table-th">제목</th>
 					<th class="table-th">작성자</th>
+					<th class="table-th">조회수</th>
 					<th class="table-th">작성일</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>Hi</td>
-					<td>David</td>
-					<td>2020-01-01</td>
+			
+				<c:forEach var="tempBoards" items="${boards}">
+				
+				<tr onclick="window.location.href='contents?id=${tempBoards.boardIdx}'; return false;">
+					<td>${tempBoards.boardIdx}</td>
+					<td>${tempBoards.title}</td>
+					<td>${tempBoards.user.id}</td>
+					<td>${tempBoards.hits}</td>
+					<td>${tempBoards.createDate}</td>
 				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 		<hr />

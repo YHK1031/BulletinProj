@@ -44,6 +44,10 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	@Transactional
 	public Board getBoard(Long theId) {
+		Board theBoard = boardDao.getBoard(theId);
+		
+		theBoard.setHits(theBoard.getHits()+1);
+		boardDao.saveBoard(theBoard);
 		
 		return boardDao.getBoard(theId);
 	}

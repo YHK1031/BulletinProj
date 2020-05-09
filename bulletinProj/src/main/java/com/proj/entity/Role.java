@@ -6,14 +6,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "role_tb")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 public class Role {
 
 	@Id
@@ -22,7 +24,7 @@ public class Role {
 	
 	@Column(name = "role")
 	private String role;
-	
+
 	@OneToMany(mappedBy="role", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<User> users;
 

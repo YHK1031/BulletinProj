@@ -10,8 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "BOARD_KIND_TB")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 public class BoardKind {
 
 	@Id
@@ -46,6 +50,11 @@ public class BoardKind {
 
 	public void setBoards(List<Board> boards) {
 		this.boards = boards;
+	}
+
+	@Override
+	public String toString() {
+		return "BoardKind [boardKindId=" + boardKindId + ", boardKindName=" + boardKindName + "]";
 	}
 	
 	

@@ -53,22 +53,32 @@
 
 
 	<form:form action="${pageContext.request.contextPath}/newArticle" 
-						  	   modelAttribute="boardArticle"
+						  	   modelAttribute="board"
 						  	   class="form-horizontal"
 						  	   method="post">
-		
 		<label class="control-label" for="article-title">제목</label>
-		<form:input path="title" type="text" class="form-control" id="article-title"/>
+		<form:input path="title" type="text" class="form-control" id="article-title" readonly="true" />
+		<label class="control-label" for="article-userId">작성자</label>
+		<form:input path="user.id" type="text" class="form-control" id="article-userId" readonly="true" />
 		<label class="control-label" for="article-contents">내용</label>
 		<div class="form-group" id="article-contents">
-			<form:textarea path="content" class="form-control" rows="15"/>
+			<form:textarea path="content" class="form-control" rows="15" readonly="true"/>
 			<form:hidden path="boardKind" value="MAIN"/>
 		</div>
-		<button type="submit" class="btn btn-secondary">제출하기</button>
+	</form:form>
+	
+	<br>
+	
+	<!-- comment function needed -->
+	<form:form action="${pageContext.request.contextPath}/newArticle" 
+						  	   modelAttribute="board"
+						  	   class="form-horizontal"
+						  	   method="post">
+	<form:input path="" type="text" class="form-control" id="article-title" />
+	<button type="submit" class="btn btn-secondary">댓글달기</button>
 	</form:form>
 
-
-
+	<br>
 	<div>
 		<a href="${pageContext.request.contextPath}" class="btn btn-secondary"
 			role="button" aria-pressed="true">뒤로가기</a>
